@@ -7,7 +7,6 @@ namespace IlletekKalkulator
     internal class Szoba
     {
         //belso tarolok
-        private int Terezia;
         private int ejszakaiAr;
         private int ferohely;
         private static int osszesRegisztraltSzoba = 0;
@@ -40,6 +39,14 @@ namespace IlletekKalkulator
             EjszakaiAr = ejszakaiAr;
             Ferohely = ferohely;
             osszesRegisztraltSzoba++;
+        }
+        public override string ToString()
+        {
+            return $"{Szobaszam} Emelet: {Emelet}. | Férőhely: {Ferohely} | Ár: {EjszakaiAr} Ft/éj";
+        }
+        public int FoglalasErtek(int ejszakakSzama)
+        {
+            return ejszakakSzama * EjszakaiAr;
         }
     }
 }
