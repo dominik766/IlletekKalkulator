@@ -7,6 +7,7 @@ namespace IlletekKalkulator
     internal class Szoba
     {
         //belso tarolok
+        private int Terezia;
         private int ejszakaiAr;
         private int ferohely;
         private static int osszesRegisztraltSzoba = 0;
@@ -28,17 +29,17 @@ namespace IlletekKalkulator
         {
             get => osszesRegisztraltSzoba;
         }
-        public Szoba(string szobaszam, int emelet, int ejszakaiAr)
+        public Szoba(string szobaszam, int emelet, int ejszakaiAr) : this(szobaszam, emelet, ejszakaiAr, 2)
+        {
+        }
+        public Szoba(string szobaszam, int emelet, int ejszakaiAr, int ferohely)
         {
             //elobb property, aztan belso tarolo!
             Szobaszam = szobaszam;
             Emelet = emelet;
             EjszakaiAr = ejszakaiAr;
             Ferohely = ferohely;
-        }
-        public Szoba(string szobaszam, int emelet, int ejszakaiAr, int ferohely)
-        {
-
+            osszesRegisztraltSzoba++;
         }
     }
 }
