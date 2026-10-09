@@ -26,3 +26,11 @@ foreach (Szoba szoba in szobak)
     Console.WriteLine(szoba.ToString());
 }
 Console.WriteLine($"összes szoba: {Szoba.OsszesRegisztraltSzoba} regisztrálva");
+int osszesen = 0;
+foreach (Szoba sz in szobak) osszesen += sz.EjszakaiAr * sz.Ferohely;
+Console.WriteLine($"összesen {IlletekKalkulator.IlletekKalkulator.VegosszegIFAVal(osszesen)} Ft/éj a szobák kapacitása");
+Szoba legnagyobb = szobak[0];
+foreach (Szoba sz in szobak) { if (sz.EjszakaiAr < legnagyobb.EjszakaiAr) { legnagyobb = sz } }
+Console.WriteLine($"legnagyobb szoba: {legnagyobb}");
+Szoba legnagyobb2 = szobak.MaxBy(sz => sz.Ferohely);
+Console.WriteLine($"legnagyobb szoba: {legnagyobb2}");
